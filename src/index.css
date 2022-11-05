@@ -1,3 +1,7 @@
 .main {
     background: red;
+
+    &_blue {
+         background: blue;
+     }
 }
