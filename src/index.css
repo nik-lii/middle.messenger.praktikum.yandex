@@ -1,7 +1,80 @@
-.main {
-    background: red;
+@import "./pages/authorization/authorization.css";
 
-    &_blue {
-         background: blue;
-     }
+$primaryColor: #000000;
+$secondaryColor: rgba(0,0,0,.72);
+$thirdColor: rgba(0,0,0,.52);
+$activeColor: indianred;
+$backgroundColor: #ffffff;
+$borderRadius: 6px;
+
+* {
+    outline: none;
+    box-sizing: border-box;
 }
+
+body {
+    font-family: Verdana, sans-serif;
+}
+
+/* General */
+.title {
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 34px;
+}
+
+.button {
+    font-size: 16px;
+    color: $primaryColor;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: $borderRadius;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: $backgroundColor;
+
+    &_fullWidth {
+        width: 100%;
+    }
+
+    &:hover,&:active,&:focus {
+        color: $activeColor;
+        border-color: $activeColor;
+    }
+}
+
+.link {
+    font-size: 14px;
+    text-decoration: none;
+    color: $secondaryColor;
+
+    &:hover,&:focus {
+        color: $activeColor;
+    }
+}
+
+.label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 8px;
+    color: $thirdColor;
+}
+.input {
+    font-size: 16px;
+    color: $secondaryColor;
+    padding: 6px 10px 6px 0;
+    border-width: 0;
+    border-bottom: 1px solid $primaryColor;
+    outline: none;
+
+    &:hover,&:active,&:focus {
+        border-color: $activeColor;
+    }
+
+    &_fullWidth {
+        width: 100%;
+    }
+
+}
+
+ /* Авторизация */

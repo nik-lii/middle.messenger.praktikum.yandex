@@ -2,9 +2,8 @@
   "name": "messanger",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "dev": "parcel index.hbs",
+    "dev": "parcel index.hbs --no-cache",
     "build": "parcel build index.hbs"
   },
   "keywords": [],
@@ -14,6 +13,7 @@
     "@anikin/parcel-transformer-handlebars": "^1.0.9",
     "parcel": "^2.0.1",
     "postcss": "^8.4.18",
-    "postcss-nested": "^6.0.0"
+    "postcss-nested": "^6.0.0",
+    "postcss-simple-vars": "^7.0.0"
   }
 }

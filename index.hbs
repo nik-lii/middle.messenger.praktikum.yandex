@@ -1,11 +1,25 @@
 ---
 id: "root"
+buttonText: "Текст"
 ---
 <html>
 <head>
-    <script src="src/index.js" type="module"></script>
+    <link href="./src/index.css" rel="stylesheet">
 </head>
 <body>
 <div class="main main_blue" id="{{ id }}"></div>
+
+{{> button buttonText="Текст2" buttonClass="button"}}
+
+<h3>Input Text</h3>
+
+
+<h3>Chat Preview</h3>
+<section class="chat-preview">
+
+</section>
+
+<a href="src/pages/authorization/authorization.hbs">authorization</a>
+
 </body>
 </html>
