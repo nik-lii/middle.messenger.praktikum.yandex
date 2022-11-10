@@ -1,0 +1,15 @@
+{
+  "messages": [
+    {
+      "previewTitle": "Ivan",
+      "previewMessage": "Hello, world",
+      "previewDate": "19:21",
+      "previewCount": 5
+    },
+    {
+      "previewTitle": "Alex",
+      "previewMessage": "Bye, world",
+      "previewDate": "Sun"
+    }
+  ]
+}

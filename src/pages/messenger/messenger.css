@@ -1,0 +1,83 @@
+$thirdColor: rgba(0,0,0,.52);
+$activeColor: indianred;
+$borderRadius: 6px;
+
+.content {
+    display: flex;
+    align-items: flex-start;
+    max-height: 100vh;
+}
+
+.chats {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    &__profile-link {
+        margin-bottom: 32px;
+    }
+
+    &__search {
+        margin-bottom: 32px;
+    }
+
+    &__search-label {
+        display: none;
+    }
+}
+
+.chats-list {
+    overflow: scroll;
+}
+
+.chat {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+
+    &__current-title {
+        align-self: center;
+        margin-bottom: 6px;
+    }
+
+    &__messages {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__date {
+        margin-top: 30px;
+        margin-bottom: 20px;
+        align-self: center;
+        font-size: 12px;
+        line-height: 12px;
+        color: $thirdColor;
+
+        &:first-of-type {
+            margin-top: 12px;
+        }
+    }
+
+    &__message {
+        padding: 12px;
+        width: 40%;
+        color: white;
+        border-radius: $borderRadius;
+        margin-top: 12px;
+        font-size: 12px;
+        line-height: 15px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    &__received {
+        background-color: $thirdColor ;
+    }
+
+    &__sent {
+        background-color: $activeColor;
+        align-self: flex-end;
+    }
+}

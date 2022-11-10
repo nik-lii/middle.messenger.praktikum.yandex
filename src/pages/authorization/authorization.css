@@ -13,9 +13,15 @@
 .user-info {
     margin-bottom: 42px;
 
-    &__input, &__action {
+    &__input {
         margin-bottom: 28px;
+    }
 
+    &__action {
+        margin-bottom: 22px;
+    }
+
+    &__input, &__action {
         &:last-child {
             margin-bottom: 0;
         }
