@@ -153,6 +153,19 @@ body {
         line-height: 12px;
         font-weight: 500;
     }
+}
 
+.dataRow {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    margin-bottom: 24px;
 
+    &__key,&__value {
+        font-size: 13px;
+    }
+
+    &__value {
+        color: $thirdColor;
+    }
 }
