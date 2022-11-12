@@ -17,13 +17,14 @@ title: Профиль
 <main class="content">
     <section class="authorization">
         <h1 class="title">{{title}}</h1>
+        <div class="user-avatar"></div>
         <div class="user-info">
             {{> dataRow key="Почта" value="email@example.com" dataRowClass="dataRow" dataKeyClass="dataRow__key" dataValueClass="dataRow__value"}}
             {{> dataRow key="Логин" value="ivan" dataRowClass="dataRow" dataKeyClass="dataRow__key" dataValueClass="dataRow__value"}}
             {{> dataRow key="Имя" value="Иван" dataRowClass="dataRow" dataKeyClass="dataRow__key" dataValueClass="dataRow__value"}}
             {{> dataRow key="Фамилия" value="Иванов" dataRowClass="dataRow" dataKeyClass="dataRow__key" dataValueClass="dataRow__value"}}
             {{> dataRow key="Имя в чате" value="Иван" dataRowClass="dataRow" dataKeyClass="dataRow__key" dataValueClass="dataRow__value"}}
-            {{> dataRow key="Телефон" value="+79101234567" dataRowClass="dataRow" dataKeyClass="dataRow__key" dataValueClass="dataRow__value"}}
+            {{> dataRow key="Телефон" value="79101234567" dataRowClass="dataRow" dataKeyClass="dataRow__key" dataValueClass="dataRow__value"}}
         </div>
         <div class="user-action">
             {{> link linkText="Изменить данные" linkClass="link user-info__action user-info__link"}}

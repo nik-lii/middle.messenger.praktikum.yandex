@@ -18,11 +18,12 @@ title: Регистрация
     <section class="registration">
         <h1 class="title">{{title}}</h1>
         <div class="user-info">
-            {{>input inputClass="input input_fullWidth user-info__input" inputLabel="Почта" inputType="text" inputName="login"}}
+            {{>input inputClass="input input_fullWidth user-info__input" inputLabel="Имя" inputType="text" inputName="first_name"}}
+            {{>input inputClass="input input_fullWidth user-info__input" inputLabel="Фамилия" inputType="text" inputName="second_name"}}
             {{>input inputClass="input input_fullWidth user-info__input" inputLabel="Логин" inputType="text" inputName="login"}}
-            {{>input inputClass="input input_fullWidth user-info__input" inputLabel="Имя" inputType="text" inputName="login"}}
-            {{>input inputClass="input input_fullWidth user-info__input" inputLabel="Фамилия" inputType="text" inputName="login"}}
-            {{>input inputClass="input input_fullWidth user-info__input" inputLabel="Телефон" inputType="tel" inputName="login"}}
+            {{>input inputClass="input input_fullWidth user-info__input" inputLabel="Отображаемое имя" inputType="text" inputName="display_name"}}
+            {{>input inputClass="input input_fullWidth user-info__input" inputLabel="Почта" inputType="text" inputName="email"}}
+            {{>input inputClass="input input_fullWidth user-info__input" inputLabel="Телефон" inputType="tel" inputName="phone"}}
             {{>input inputClass="input input_fullWidth user-info__input" inputLabel="Пароль" inputType="password" inputName="password"}}
             {{>input inputClass="input input_fullWidth user-info__input" inputLabel="Пароль (ещё раз)" inputType="password" inputName="password"}}
         </div>
