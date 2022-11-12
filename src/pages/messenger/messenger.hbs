@@ -53,42 +53,6 @@ sent: Привет! Смотри, тут всплыл интересный ку�
             {{>messagePreview previewClass="messagePreview" previewAvatar="messagePreview__avatar" previewTitle="Alex"
                     previewMessage="Bye, World. Bye, World. Bye, World. Bye, World. By" previewDate="Sun" }}
 
-
-            {{>messagePreview previewClass="messagePreview" previewAvatar="messagePreview__avatar" previewTitle="Ivan"
-                    previewMessage="Hello, World" previewDate="15:31" previewCount=4}}
-            {{>messagePreview previewClass="messagePreview" previewAvatar="messagePreview__avatar" previewTitle="Alex"
-                    previewMessage="Bye, World. Bye, World. Bye, World. Bye, World. By" previewDate="Sun" }}
-
-
-            {{>messagePreview previewClass="messagePreview" previewAvatar="messagePreview__avatar" previewTitle="Ivan"
-                    previewMessage="Hello, World" previewDate="15:31" previewCount=4}}
-            {{>messagePreview previewClass="messagePreview" previewAvatar="messagePreview__avatar" previewTitle="Alex"
-                    previewMessage="Bye, World. Bye, World. Bye, World. Bye, World. By" previewDate="Sun" }}
-
-
-            {{>messagePreview previewClass="messagePreview" previewAvatar="messagePreview__avatar" previewTitle="Ivan"
-                    previewMessage="Hello, World" previewDate="15:31" previewCount=4}}
-            {{>messagePreview previewClass="messagePreview" previewAvatar="messagePreview__avatar" previewTitle="Alex"
-                    previewMessage="Bye, World. Bye, World. Bye, World. Bye, World. By" previewDate="Sun" }}
-
-
-            {{>messagePreview previewClass="messagePreview" previewAvatar="messagePreview__avatar" previewTitle="Ivan"
-                    previewMessage="Hello, World" previewDate="15:31" previewCount=4}}
-            {{>messagePreview previewClass="messagePreview" previewAvatar="messagePreview__avatar" previewTitle="Alex"
-                    previewMessage="Bye, World. Bye, World. Bye, World. Bye, World. By" previewDate="Sun" }}
-
-
-            {{>messagePreview previewClass="messagePreview" previewAvatar="messagePreview__avatar" previewTitle="Ivan"
-                    previewMessage="Hello, World" previewDate="15:31" previewCount=4}}
-            {{>messagePreview previewClass="messagePreview" previewAvatar="messagePreview__avatar" previewTitle="Alex"
-                    previewMessage="Bye, World. Bye, World. Bye, World. Bye, World. By" previewDate="Sun" }}
-
-            {{>messagePreview previewClass="messagePreview" previewAvatar="messagePreview__avatar" previewTitle="Ivan"
-                    previewMessage="Hello, World" previewDate="15:31" previewCount=4}}
-            {{>messagePreview previewClass="messagePreview" previewAvatar="messagePreview__avatar" previewTitle="Alex"
-                    previewMessage="Bye, World. Bye, World. Bye, World. Bye, World. By" previewDate="Sun" }}
-
-
         </div>
     </article>
 
@@ -102,12 +66,18 @@ sent: Привет! Смотри, тут всплыл интересный ку�
             <div class="chat__message chat__received">Нет!</div>
             <div class="chat__date">31 декабря</div>
             <div class="chat__message chat__received">Ой, да!</div>
-            <div class="chat__message chat__sent">...</div>
+            <div class="chat__message chat__received">...</div>
         </article>
 
+        <div class="chat__footer">
+            {{>input inputClass="input input_fullWidth user-info__input" inputLabel="Сообщение" inputType="text" inputName="login"}}
+                <div class="chat__footer-buttons">
+                    {{> button buttonText="Отправить" buttonClass="button chat__footer-button"}}
+                    {{> button buttonText="+" buttonClass="button button_rounded chat__footer-button"}}
+                </div>
 
+        </div>
     </article>
-
 </main>
 
 
