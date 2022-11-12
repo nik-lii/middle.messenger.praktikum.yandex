@@ -3,7 +3,7 @@ $thirdColor: rgba(0,0,0,.52);
 $activeColor: rgba(205,92,92,.2);
 $borderRadius: 6px;
 
-.content {
+.page {
     display: flex;
     align-items: flex-start;
     max-height: 100vh;
