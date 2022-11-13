@@ -16,6 +16,12 @@ title: Изменение личных данных
 <main class="page">
     <section class="registration">
         <h1 class="title">{{title}}</h1>
+        <label>
+        <div class="user-avatar user-avatar_edit">
+            <input type="file" class="user-avatar__input">
+        </div>
+        </label>
+
         <div class="user-info">
             {{>input inputValue="Иван" inputClass="input input_fullWidth user-info__input" inputLabel="Имя" inputType="text" inputName="first_name"}}
             {{>input inputValue="Иванов" inputClass="input input_fullWidth user-info__input" inputLabel="Фамилия" inputType="text" inputName="second_name"}}
