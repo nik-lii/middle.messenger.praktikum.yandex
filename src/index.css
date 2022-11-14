@@ -243,3 +243,17 @@ body {
         color: $thirdColor;
     }
 }
+
+
+.project-item {
+    list-style: none;
+}
+
+.project-link {
+    text-decoration: none;
+    color: $fourthColor;
+
+    &:hover,&:focus {
+        color: $activeColor;
+    }
+}
