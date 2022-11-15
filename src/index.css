@@ -1,0 +1,259 @@
+$primaryColor: #000000;
+$secondaryColor: rgba(0,0,0,.72);
+$thirdColor: rgba(0,0,0,.52);
+$fourthColor: rgba(0,0,0,.1);
+$activeColor: indianred;
+$backgroundColor: #ffffff;
+$borderRadius: 6px;
+
+* {
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, sans-serif;
+}
+
+/* Pages */
+.page {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__content {
+        width: 340px;
+    }
+}
+
+.user-avatar {
+    border-radius: 50%;
+    background-color: $fourthColor;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 22px;
+
+    &__input {
+        opacity: 0;
+    }
+
+    &_edit {
+        cursor: pointer;
+        opacity: .5;
+        &:hover {
+            background-color: $activeColor;
+        }
+    }
+}
+
+.user-info {
+    margin-bottom: 42px;
+
+    &__input {
+        margin-bottom: 28px;
+    }
+
+    &__action {
+        margin-bottom: 22px;
+    }
+
+    &__input, &__action {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__link {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* General */
+.title {
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 34px;
+    text-align: center;
+}
+
+.button {
+    font-size: 16px;
+    color: $primaryColor;
+    height: 40px;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: $borderRadius;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: $backgroundColor;
+
+    &_rounded {
+        display: flex;
+        justify-content: center;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+    }
+
+    &_fullWidth {
+        width: 100%;
+    }
+
+    &:hover,&:active,&:focus {
+        color: $activeColor;
+        border-color: $activeColor;
+    }
+}
+
+.link {
+    font-size: 14px;
+    text-decoration: none;
+    color: $secondaryColor;
+
+    &:hover,&:focus {
+        color: $activeColor;
+    }
+}
+
+.label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 8px;
+    color: $thirdColor;
+}
+.input {
+    font-size: 16px;
+    color: $secondaryColor;
+    padding: 6px 10px 6px 0;
+    border-width: 0;
+    border-bottom: 1px solid $primaryColor;
+    outline: none;
+
+    &:hover,&:active,&:focus {
+        border-color: $activeColor;
+    }
+
+    &_fullWidth {
+        width: 100%;
+    }
+
+}
+
+
+.messagePreview {
+    width: 300px;
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 5px;
+    border-radius: $borderRadius;
+    cursor: pointer;
+    margin-bottom: 4px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &_active {
+        background-color: $fourthColor;
+    }
+
+    &:hover {
+        background-color: $fourthColor;
+    }
+
+    &__avatar {
+        width: 47px;
+        min-width: 47px;
+        height: 47px;
+        min-height: 47px;
+        border-radius: 50%;
+        background-color: $fourthColor;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        margin-left: 10px;
+    }
+
+    &__meta {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4px;
+    }
+
+    &__title {
+        font-size: 13px;
+        line-height: 13px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    &__message {
+        display: block;
+        display: -webkit-box;
+        font-size: 12px;
+        line-height: 15px;
+        font-weight: 500;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    &__data {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__date {
+        font-size: 9px;
+        line-height: 13px;
+        font-weight: 500;
+    }
+
+    &__count {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20px;
+        height: 20px;
+        background-color: $activeColor;
+        border-radius: 50%;
+        color: $backgroundColor;
+        font-size: 11px;
+        line-height: 12px;
+        font-weight: 500;
+    }
+}
+
+.dataRow {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    margin-bottom: 24px;
+
+    &__key,&__value {
+        font-size: 13px;
+    }
+
+    &__value {
+        color: $thirdColor;
+    }
+}
+
+
+.project-item {
+    list-style: none;
+}
+
+.project-link {
+    text-decoration: none;
+    color: $fourthColor;
+
+    &:hover,&:focus {
+        color: $activeColor;
+    }
+}
