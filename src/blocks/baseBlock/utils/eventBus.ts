@@ -28,8 +28,6 @@ export class EventBus {
       throw new Error(`Error: Нет события: ${event}`)
     }
 
-    console.log('args', args);
-
     this.listeners[event].forEach(listener => listener(...args))
   }
 }

@@ -23,8 +23,6 @@ class Block {
       props
     };
 
-    console.log('props:', props)
-
     this.props = this._makePropsProxy(props);
 
     this.eventBus = () => eventBus;
@@ -42,7 +40,6 @@ class Block {
 
   _createResources() {
     const {tagName} = this._meta;
-    console.log('tagName:', tagName)
     this._element = this._createDocumentElement(tagName);
   }
 
@@ -55,7 +52,6 @@ class Block {
     this.componentDidMount(props);
   }
 
-// Может переопределять пользователь, необязательно трогать
   componentDidMount(oldProps) {
   }
 
@@ -67,7 +63,6 @@ class Block {
     const response = this.componentDidUpdate(oldProps, newProps);
   }
 
-// Может переопределять пользователь, необязательно трогать
   componentDidUpdate(oldProps, newProps) {
     if (oldProps !== newProps) {
       return true;
@@ -90,7 +85,6 @@ class Block {
 
   _render() {
     const block = this.render();
-    console.log('block:', block)
 
     // Этот небезопасный метод для упрощения логики
     // Используйте шаблонизатор из npm или напишите свой безопасный
@@ -99,7 +93,6 @@ class Block {
     //this._element.innerHTML = block;
   }
 
-// Может переопределять пользователь, необязательно трогать
   render() {
   }
 
@@ -108,8 +101,6 @@ class Block {
   }
 
   _makePropsProxy(props) {
-    // Можно и так передать this
-    // Такой способ больше не применяется с приходом ES6+
     const self = this;
 
     return new Proxy(props, {
@@ -121,8 +112,6 @@ class Block {
         const oldTarget = {...target}
         target[prop] = value;
 
-        // Запускаем обновление компоненты
-        // Плохой cloneDeep, в следующей итерации нужно заставлять добавлять cloneDeep им самим
         self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
         return true;
       },
@@ -135,7 +124,6 @@ class Block {
 
   _createDocumentElement(tagName) {
     // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
-    console.log('document:', document)
     return document.createElement(tagName);
   }
 
