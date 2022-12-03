@@ -1,4 +1,4 @@
-import { EventBus } from "./utils/eventBus";
+import { EventBus } from "../eventBus/eventBus";
 import { nanoid } from "nanoid";
 
 export class BaseBlock<P = any> {
