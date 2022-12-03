@@ -1,13 +1,9 @@
 <main class="page">
-    <section class="page__content">
-        <h1 class="title">{{title}}</h1>
-        <div class="user-info">
-            {{>input inputClass="input input_fullWidth user-info__input" inputLabel="Логин" inputType="text" inputName="login"}}
-            {{>input inputClass="input input_fullWidth user-info__input" inputLabel="Пароль" inputType="password" inputName="password"}}
-        </div>
-        <div class="user-action">
-            {{> button buttonText="Войти" buttonClass="button button_fullWidth user-info__action"}}
-            {{> link linkText="Зарегистрироваться" linkClass="link user-info__action user-info__link"}}
-        </div>
-    </section>
+  <section class="page__content">
+    <h1 class="title">Авторизация</h1>
+    <form class="form">
+      {{{userInfo}}}
+      {{{userAction}}}
+    </form>
+  </section>
 </main>

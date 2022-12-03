@@ -1,0 +1,70 @@
+@import "../../index.css";
+
+.label-wrapper {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+  &__error-info {
+    display: none;
+  }
+
+  &_error &__error-info {
+    display: block;
+    font-size: 14px;
+    text-decoration: underline dashed $activeColor;
+    color: $activeColor;
+    margin-left: 12px;
+    cursor: pointer;
+  }
+
+  &__error-info-text {
+    display: none;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    font-size: 10px;
+    color: $activeColor;
+    width: 200px;
+    text-decoration: none;
+    background-color: white;
+  }
+
+  &:hover &__error-info-text {
+    display: block;
+  }
+}
+
+.input-error {
+  display: none;
+}
+
+.label {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 8px;
+  color: $thirdColor;
+}
+
+.input {
+  font-size: 16px;
+  color: $secondaryColor;
+  padding: 6px 10px 6px 0;
+  border-width: 0;
+  border-bottom: 1px solid $fourthColor;
+  outline: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: $fourthColor;
+  }
+
+  &_fullWidth {
+    width: 100%;
+  }
+
+  &_error {
+    border-bottom: 1px solid $activeColor;
+  }
+}

@@ -1,41 +1,14 @@
----
-head: Изменить данные
-title: Изменение личных данных
----
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="../../index.css" rel="stylesheet">
-    <title>{{head}}</title>
-</head>
-<body>
-
 <main class="page">
-    <section class="registration">
-        <h1 class="title">{{title}}</h1>
-        <label>
-            <div class="user-avatar user-avatar_edit">
-                <input type="file" name="avatar" class="user-avatar__input">
-            </div>
-        </label>
-
-        <div class="user-info">
-            {{>input inputValue="Иван" inputClass="input input_fullWidth user-info__input" inputLabel="Имя" inputType="text" inputName="first_name"}}
-            {{>input inputValue="Иванов" inputClass="input input_fullWidth user-info__input" inputLabel="Фамилия" inputType="text" inputName="second_name"}}
-            {{>input inputValue="ivan" inputClass="input input_fullWidth user-info__input" inputLabel="Логин" inputType="text" inputName="login"}}
-            {{>input inputValue="Вано" inputClass="input input_fullWidth user-info__input" inputLabel="Отображаемое имя" inputType="text" inputName="display_name"}}
-            {{>input inputValue="email@example.com" inputClass="input input_fullWidth user-info__input" inputLabel="Почта" inputType="text" inputName="email"}}
-            {{>input inputValue="79101234567" inputClass="input input_fullWidth user-info__input" inputLabel="Телефон" inputType="tel" inputName="phone"}}
-        </div>
-        <div class="user-action">
-            {{> button buttonText="Сохранить" buttonClass="button button_fullWidth user-info__action"}}
-            {{> link linkText="Отмена" linkClass="link user-info__action user-info__link"}}
-        </div>
-    </section>
+  <section class="registration">
+    <h1 class="title">Изменение личных данных</h1>
+    <label>
+      <div class="user-avatar user-avatar_edit">
+        <input type="file" name="avatar" class="user-avatar__input" />
+      </div>
+    </label>
+    <form class="form">
+      {{{userInfo}}}
+      {{{userAction}}}
+    </form>
+  </section>
 </main>
-
-</body>
-</html>

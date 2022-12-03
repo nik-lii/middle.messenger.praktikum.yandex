@@ -1,0 +1,16 @@
+@import "../../index.css";
+
+.dataRow {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 24px;
+
+  &__key,
+  &__value {
+    font-size: 13px;
+  }
+
+  &__value {
+    color: $thirdColor;
+  }
+}

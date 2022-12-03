@@ -1,0 +1,15 @@
+<section class="messagePreview">
+  <div class="messagePreview__avatar"></div>
+  <div class="messagePreview__info">
+    <div class="messagePreview__meta">
+      <p class="messagePreview__title">{{previewTitle}}</p>
+      <span class="messagePreview__date">{{previewDate}}</span>
+    </div>
+    <div class="messagePreview__data">
+      <span class="messagePreview__message">{{previewMessage}}</span>
+      {{#if previewCount}}
+        <div class="messagePreview__count">{{previewCount}}</div>
+      {{/if}}
+    </div>
+  </div>
+</section>

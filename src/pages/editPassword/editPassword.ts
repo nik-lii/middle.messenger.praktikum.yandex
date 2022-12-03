@@ -1,22 +1,16 @@
 import { BaseBlock } from "../../blocks/baseBlock/baseBlock";
-import template from "./authorization.hbs";
+import template from "./editPassword.hbs";
 import { Input } from "../../components/input/input";
 import { UserInfo } from "../../components/userInfo/userInfo";
 import { Button } from "../../components/button/button";
 import { UserAction } from "../../components/userAction/userAction";
 import { FormValidator } from "../../blocks/formValidation/formValidation";
 import { goTo } from "../../utils/goTo";
-import { RegistrationPage } from "../registration/registration";
-import { EditProfilePage } from "../editProfile/editProfile";
-import { EditPasswordPage } from "../editPassword/editPassword";
 import { ProfilePage } from "../profile/profile";
-import { MessengerPage } from "../messenger/messenger";
 
-interface AuthorizationPageProps {
-  title: string;
-}
+interface EditPasswordPageProps {}
 
-export class AuthorizationPage extends BaseBlock<AuthorizationPageProps> {
+export class EditPasswordPage extends BaseBlock<EditPasswordPageProps> {
   constructor(props) {
     super("div", props);
   }
@@ -25,16 +19,23 @@ export class AuthorizationPage extends BaseBlock<AuthorizationPageProps> {
     this.children.userInfo = new UserInfo({
       inputs: [
         new Input({
-          labelText: "Логин",
-          inputType: "text",
-          inputName: "login",
-          inputClass: "input input_fullWidth ",
+          labelText: "Старый пароль",
+          inputType: "password",
+          inputName: "old_password",
+          inputClass: "input input_fullWidth",
           inputWrapperClass: "user-info__input",
         }),
         new Input({
-          labelText: "Пароль",
+          labelText: "Новый пароль",
           inputType: "password",
           inputName: "password",
+          inputClass: "input input_fullWidth",
+          inputWrapperClass: "user-info__input",
+        }),
+        new Input({
+          labelText: "Новый пароль (ещё раз)",
+          inputType: "password",
+          inputName: "repeat_password",
           inputClass: "input input_fullWidth",
           inputWrapperClass: "user-info__input",
         }),
@@ -44,22 +45,22 @@ export class AuthorizationPage extends BaseBlock<AuthorizationPageProps> {
     this.children.userAction = new UserAction({
       buttons: [
         new Button({
-          text: "Войти",
+          text: "Сохранить",
           class: "button button_fullWidth user-info__action",
           events: {
             click: () => {},
           },
         }),
         new Button({
-          text: "Зарегистрироваться",
+          text: "Отмена",
           link: true,
           class: "link user-info__action user-info__link",
           url: "../registration/registration.hbs",
           events: {
             click: (e) => {
               e.preventDefault();
-              const registrationPage = new RegistrationPage({});
-              goTo(registrationPage);
+              const profilePage = new ProfilePage({});
+              goTo(profilePage);
             },
           },
         }),
@@ -68,15 +69,16 @@ export class AuthorizationPage extends BaseBlock<AuthorizationPageProps> {
   }
 
   addValidation(element) {
+    const profilePage = new ProfilePage({});
     const form = element.querySelector(".form");
-    const messengerPage = new MessengerPage({});
-
-    const formValidation = new FormValidator(form, ["login", "password"], () => goTo(messengerPage));
+    const formValidation = new FormValidator(form, ["old_password", "password", "repeat_password"], () =>
+      goTo(profilePage)
+    );
     formValidation.initialize();
   }
 
   render() {
-    const element = this.compile(template, { title: this.props.title });
+    const element = this.compile(template, {});
     this.addValidation(element);
 
     return element;

@@ -1,21 +1,23 @@
-import {BaseBlock} from "../../blocks/baseBlock/baseBlock";
+import { BaseBlock } from "../../blocks/baseBlock/baseBlock";
 import template from "./button.hbs";
+import "./button.css";
 
 interface ButtonProps {
-  label:string;
-  events: {
-    click: () => void
-  }
+  text: string;
+  class: string;
+  link?: boolean;
+  url?: string;
+  events?: {
+    click: (e) => void;
+  };
 }
 
 export class Button extends BaseBlock<ButtonProps> {
   constructor(props: ButtonProps) {
-    super('button', props);
+    super("button", props);
   }
 
   render() {
-    setTimeout(()=>{this.setProps({ label: '123'
-    })}, 1000)
-    return this.compile(template, {label: this.props.label, events:this.props.events })
+    return this.compile(template, { ...this.props });
   }
 }
