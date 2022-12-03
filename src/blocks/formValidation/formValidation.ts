@@ -1,4 +1,4 @@
-import {Nullable} from "../../types/common";
+import { Nullable } from "../../types/common";
 
 export class FormValidator {
   fields: string[];

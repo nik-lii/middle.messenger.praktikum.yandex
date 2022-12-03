@@ -1,5 +1,5 @@
 // Временный метод для перехода между страницами
-import {BaseBlock} from "../blocks/baseBlock/baseBlock";
+import { BaseBlock } from "../blocks/baseBlock/baseBlock";
 
 export const goTo = (page:BaseBlock) => {
   const root = document.querySelector("#app")!;

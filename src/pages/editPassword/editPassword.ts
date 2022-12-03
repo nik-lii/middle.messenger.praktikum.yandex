@@ -1,12 +1,12 @@
-import {BaseBlock} from "../../blocks/baseBlock/baseBlock";
+import { BaseBlock } from "../../blocks/baseBlock/baseBlock";
 import template from "./editPassword.hbs";
-import {Input} from "../../components/input/input";
-import {UserInfo} from "../../components/userInfo/userInfo";
-import {Button} from "../../components/button/button";
-import {UserAction} from "../../components/userAction/userAction";
-import {FormValidator} from "../../blocks/formValidation/formValidation";
-import {goTo} from "../../utils/goTo";
-import {ProfilePage} from "../profile/profile";
+import { Input } from "../../components/input/input";
+import { UserInfo } from "../../components/userInfo/userInfo";
+import { Button } from "../../components/button/button";
+import { UserAction } from "../../components/userAction/userAction";
+import { FormValidator } from "../../blocks/formValidation/formValidation";
+import { goTo } from "../../utils/goTo";
+import { ProfilePage } from "../profile/profile";
 
 interface EditPasswordPageProps {
 }
