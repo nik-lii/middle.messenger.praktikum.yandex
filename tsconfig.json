@@ -7,7 +7,10 @@
     "strictNullChecks": true,
     "sourceMap": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
   },
   "lib": ["esnext", "DOM"]
 }

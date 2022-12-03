@@ -11,7 +11,7 @@ import { ProfilePage } from "../profile/profile";
 interface RegistrationPageProps {}
 
 export class RegistrationPage extends BaseBlock<RegistrationPageProps> {
-  constructor(props) {
+  constructor(props:any) {
     super("div", props);
   }
 
@@ -90,8 +90,8 @@ export class RegistrationPage extends BaseBlock<RegistrationPageProps> {
     });
   }
 
-  addValidation(element) {
-    const form = element.querySelector(".form");
+  addValidation(element: DocumentFragment) {
+    const form = element.querySelector(".form") as HTMLFormElement;
     const profilePage = new ProfilePage({});
     const formValidation = new FormValidator(
       form,

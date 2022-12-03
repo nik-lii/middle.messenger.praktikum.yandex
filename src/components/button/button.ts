@@ -8,7 +8,7 @@ interface ButtonProps {
   link?: boolean;
   url?: string;
   events?: {
-    click: (e) => void;
+    click: (e:Event) => void;
   };
 }
 

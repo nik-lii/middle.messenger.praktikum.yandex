@@ -1,5 +1,6 @@
 import { EventBus } from "../eventBus/eventBus";
 import { nanoid } from "nanoid";
+import { FormValidator } from "../formValidation/formValidation";
 
 export class BaseBlock<P = any> {
   // Types
@@ -36,7 +37,7 @@ export class BaseBlock<P = any> {
     eventBus.emit(BaseBlock.EVENTS.INIT);
   }
 
-  private _registerEvents(eventBus) {
+  private _registerEvents(eventBus: EventBus) {
     eventBus.on(BaseBlock.EVENTS.INIT, this._init.bind(this));
     eventBus.on(BaseBlock.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(BaseBlock.EVENTS.FLOW_RENDER, this._render.bind(this));
@@ -54,33 +55,35 @@ export class BaseBlock<P = any> {
 
   protected init() {}
 
-  private _componentDidMount(props) {
+  private _componentDidMount(props: any) {
     this.componentDidMount(props);
   }
 
-  componentDidMount(oldProps) {}
+  componentDidMount(props:any) {
+    return props;
+  }
 
   dispatchComponentDidMount() {
     this.eventBus().emit(BaseBlock.EVENTS.FLOW_CDM);
   }
 
-  private _componentDidUpdate(oldProps, newProps) {
+  private _componentDidUpdate(oldProps: any, newProps: any) {
     if (this.componentDidUpdate(oldProps, newProps)) {
       this.eventBus().emit(BaseBlock.EVENTS.FLOW_RENDER);
     }
   }
 
-  componentDidUpdate(oldProps, newProps) {
+  componentDidUpdate(oldProps: any, newProps: any) {
     if (oldProps !== newProps) {
       return true;
     }
   }
 
-  setProps = (nextProps) => {
+  setProps = (nextProps: any) => {
     if (!nextProps) {
       return;
     }
-    Object.assign({}, this.props, nextProps);
+    ({ ...this.props, ...nextProps });
     this.componentDidUpdate(this.props, nextProps);
   };
 
@@ -100,7 +103,13 @@ export class BaseBlock<P = any> {
     this._addEvents();
   }
 
-  protected addValidation(form: HTMLFormElement) {}
+  protected addValidation(element: DocumentFragment) {
+    const form = element.querySelector(".form") as HTMLFormElement as HTMLFormElement;
+    if (form) {
+      const formValidation = new FormValidator(form, []);
+      formValidation.initialize();
+    }
+  }
 
   protected compile(template: (context: any) => string, context: any) {
     const contextAndStubs = { ...context };
@@ -177,7 +186,7 @@ export class BaseBlock<P = any> {
     return { props: props as P, children };
   }
 
-  private _makePropsProxy(props) {
+  private _makePropsProxy(props:any) {
     const self = this;
 
     return new Proxy(props, {
@@ -216,10 +225,6 @@ export class BaseBlock<P = any> {
     Object.entries(events).forEach(([event, listener]) => {
       this._element!.removeEventListener(event, listener);
     });
-  }
-
-  private _createDocumentElement(tagName) {
-    return document.createElement(tagName);
   }
 
   show() {

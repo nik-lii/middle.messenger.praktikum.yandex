@@ -7,9 +7,6 @@ import { UserAction } from "../../components/userAction/userAction";
 import { FormValidator } from "../../blocks/formValidation/formValidation";
 import { goTo } from "../../utils/goTo";
 import { RegistrationPage } from "../registration/registration";
-import { EditProfilePage } from "../editProfile/editProfile";
-import { EditPasswordPage } from "../editPassword/editPassword";
-import { ProfilePage } from "../profile/profile";
 import { MessengerPage } from "../messenger/messenger";
 
 interface AuthorizationPageProps {
@@ -17,7 +14,7 @@ interface AuthorizationPageProps {
 }
 
 export class AuthorizationPage extends BaseBlock<AuthorizationPageProps> {
-  constructor(props) {
+  constructor(props:any) {
     super("div", props);
   }
 
@@ -67,8 +64,8 @@ export class AuthorizationPage extends BaseBlock<AuthorizationPageProps> {
     });
   }
 
-  addValidation(element) {
-    const form = element.querySelector(".form");
+  addValidation(element: DocumentFragment) {
+    const form = element.querySelector(".form") as HTMLFormElement;
     const messengerPage = new MessengerPage({});
 
     const formValidation = new FormValidator(form, ["login", "password"], () => goTo(messengerPage));

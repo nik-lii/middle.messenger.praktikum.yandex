@@ -2,7 +2,6 @@ import { BaseBlock } from "../../blocks/baseBlock/baseBlock";
 import template from "./problem.hbs";
 import "./problem.css";
 import { Button } from "../../components/button/button";
-import { ProfilePage } from "../profile/profile";
 import { goTo } from "../../utils/goTo";
 import { MessengerPage } from "../messenger/messenger";
 

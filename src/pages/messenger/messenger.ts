@@ -2,7 +2,6 @@ import { BaseBlock } from "../../blocks/baseBlock/baseBlock";
 import template from "./messenger.hbs";
 import { Input } from "../../components/input/input";
 import { Button } from "../../components/button/button";
-import { UserAction } from "../../components/userAction/userAction";
 import { FormValidator } from "../../blocks/formValidation/formValidation";
 import { MessagePreview } from "../../components/messagePreview/messagePreview";
 import "./messenger.css";
@@ -14,7 +13,7 @@ interface MessengerPageProps {
 }
 
 export class MessengerPage extends BaseBlock<MessengerPageProps> {
-  constructor(props) {
+  constructor(props: any) {
     super("div", props);
   }
 
@@ -44,14 +43,14 @@ export class MessengerPage extends BaseBlock<MessengerPageProps> {
         },
       },
     })),
-      (this.children.searchInput = new Input({
-        labelText: "Поиск",
-        inputType: "text",
-        inputName: "message",
-        labelClass: "chats__search-label",
-        inputClass: "input chats__search",
-        inputPlaceholder: "Поиск чата 🔍",
-      }));
+    (this.children.searchInput = new Input({
+      labelText: "Поиск",
+      inputType: "text",
+      inputName: "message",
+      labelClass: "chats__search-label",
+      inputClass: "input chats__search",
+      inputPlaceholder: "Поиск чата 🔍",
+    }));
 
     this.children.inputMessage = new Input({
       labelText: "Сообщение",
@@ -76,8 +75,8 @@ export class MessengerPage extends BaseBlock<MessengerPageProps> {
     ];
   }
 
-  addValidation(element) {
-    const form = element.querySelector(".form");
+  addValidation(element: DocumentFragment) {
+    const form = element.querySelector(".form") as HTMLFormElement;
     const formValidation = new FormValidator(form, ["message"]);
     formValidation.initialize();
   }

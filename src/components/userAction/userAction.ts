@@ -1,6 +1,5 @@
 import { BaseBlock } from "../../blocks/baseBlock/baseBlock";
 import template from "./userAction.hbs";
-import { Input } from "../input/input";
 import { Button } from "../button/button";
 
 interface UserActionProps {

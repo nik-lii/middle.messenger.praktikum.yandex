@@ -22,15 +22,13 @@ const MOCK_DATA = {
 interface ProfilePageProps {}
 
 export class ProfilePage extends BaseBlock<ProfilePageProps> {
-  constructor(props) {
+  constructor(props:any) {
     super("div", props);
   }
 
   init() {
     this.children.userInfo = new UserInfo({
-      dataRows: Object.entries(MOCK_DATA).map(([key, value]) => {
-        return new DataRow({ key, value });
-      }),
+      dataRows: Object.entries(MOCK_DATA).map(([key, value]) => new DataRow({ key, value })),
     });
 
     this.children.userAction = new UserAction({

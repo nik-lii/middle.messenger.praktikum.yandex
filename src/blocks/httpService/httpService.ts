@@ -29,7 +29,7 @@ export class httpService {
   ): Promise<XMLHttpRequest | unknown> {
     return this.request(
       url,
-      {...options, method: Methods.GET},
+      { ...options, method: Methods.GET },
       options.timeout
     );
   }
@@ -40,7 +40,7 @@ export class httpService {
   ): Promise<XMLHttpRequest | unknown> {
     return this.request(
       url,
-      {...options, method: Methods.POST},
+      { ...options, method: Methods.POST },
       options.timeout
     );
   }
@@ -51,7 +51,7 @@ export class httpService {
   ): Promise<XMLHttpRequest | unknown> {
     return this.request(
       url,
-      {...options, method: Methods.PUT},
+      { ...options, method: Methods.PUT },
       options.timeout
     );
   }
@@ -62,7 +62,7 @@ export class httpService {
   ): Promise<XMLHttpRequest | unknown> {
     return this.request(
       url,
-      {...options, method: Methods.PATCH},
+      { ...options, method: Methods.PATCH },
       options.timeout
     );
   }
@@ -73,7 +73,7 @@ export class httpService {
   ): Promise<XMLHttpRequest | unknown> {
     return this.request(
       url,
-      {...options, method: Methods.DELETE},
+      { ...options, method: Methods.DELETE },
       options.timeout
     );
   }
@@ -83,7 +83,7 @@ export class httpService {
     options: Options,
     timeout = 10000
   ): Promise<XMLHttpRequest | unknown> {
-    const {headers = {}, method, data} = options;
+    const { headers = {}, method, data } = options;
 
     return new Promise(function (resolve, reject) {
       const xhr = new XMLHttpRequest();

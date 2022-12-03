@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "parcel ./src/index.html --no-cache --open",
     "build": "parcel build ./src/index.html",
-    "start": "npm run build && node ./server.js"
+    "start": "npm run build && node ./server.js",
+    "eslint-check": "eslint --quiet '**/*.{js,jsx,ts,tsx}'",
+    "eslint-fix": "eslint --quiet --fix '**/*.{js,jsx,ts,tsx}'",
+    "typecheck": "tsc --skipLibCheck --noEmit"
   },
   "keywords": [],
   "license": "ISC",
@@ -16,6 +19,7 @@
     "@typescript-eslint/parser": "5.44.0",
     "eslint": "8.28.0",
     "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "2.26.0",
     "parcel": "2.0.1",
     "postcss": "8.4.18",
     "postcss-import": "14.0.0",

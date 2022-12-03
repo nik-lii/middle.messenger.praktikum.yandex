@@ -1,17 +1,18 @@
-import { BaseBlock } from "../../blocks/baseBlock/baseBlock";
+import {BaseBlock} from "../../blocks/baseBlock/baseBlock";
 import template from "./editPassword.hbs";
-import { Input } from "../../components/input/input";
-import { UserInfo } from "../../components/userInfo/userInfo";
-import { Button } from "../../components/button/button";
-import { UserAction } from "../../components/userAction/userAction";
-import { FormValidator } from "../../blocks/formValidation/formValidation";
-import { goTo } from "../../utils/goTo";
-import { ProfilePage } from "../profile/profile";
+import {Input} from "../../components/input/input";
+import {UserInfo} from "../../components/userInfo/userInfo";
+import {Button} from "../../components/button/button";
+import {UserAction} from "../../components/userAction/userAction";
+import {FormValidator} from "../../blocks/formValidation/formValidation";
+import {goTo} from "../../utils/goTo";
+import {ProfilePage} from "../profile/profile";
 
-interface EditPasswordPageProps {}
+interface EditPasswordPageProps {
+}
 
 export class EditPasswordPage extends BaseBlock<EditPasswordPageProps> {
-  constructor(props) {
+  constructor(props: any) {
     super("div", props);
   }
 
@@ -48,7 +49,8 @@ export class EditPasswordPage extends BaseBlock<EditPasswordPageProps> {
           text: "Сохранить",
           class: "button button_fullWidth user-info__action",
           events: {
-            click: () => {},
+            click: () => {
+            },
           },
         }),
         new Button({
@@ -68,12 +70,11 @@ export class EditPasswordPage extends BaseBlock<EditPasswordPageProps> {
     });
   }
 
-  addValidation(element) {
+  addValidation(element: DocumentFragment) {
     const profilePage = new ProfilePage({});
-    const form = element.querySelector(".form");
+    const form = element.querySelector(".form") as HTMLFormElement;
     const formValidation = new FormValidator(form, ["old_password", "password", "repeat_password"], () =>
-      goTo(profilePage)
-    );
+      goTo(profilePage));
     formValidation.initialize();
   }
 

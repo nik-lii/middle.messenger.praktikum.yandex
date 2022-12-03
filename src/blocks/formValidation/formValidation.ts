@@ -1,10 +1,12 @@
+import {Nullable} from "../../types/common";
+
 export class FormValidator {
   fields: string[];
   form: HTMLFormElement;
-  successCallback: () => void;
+  successCallback?: () => void;
   allValidate: boolean;
 
-  constructor(form, fields, successCallback?) {
+  constructor(form: HTMLFormElement, fields:string[], successCallback?:() => void) {
     this.form = form;
     this.fields = fields;
     this.successCallback = successCallback;
@@ -17,13 +19,13 @@ export class FormValidator {
   }
 
   validateOnSubmit() {
-    let self = this;
+    const self = this;
 
     this.form.addEventListener("submit", (e) => {
       this.allValidate = true;
 
       e.preventDefault();
-      const currentData = {};
+      const currentData:Record<string, string> = {};
       self.fields.forEach((field) => {
         const input = this.form.querySelector(`#${field}`) as HTMLInputElement;
         if (!input) {
@@ -40,20 +42,20 @@ export class FormValidator {
   }
 
   validateOnBlur() {
-    let self = this;
+    const self = this;
     this.fields.forEach((field) => {
       const input = this.form.querySelector(`#${field}`);
       if (!input) {
         return;
       }
 
-      input.addEventListener("blur", (event) => {
-        self.validateFields(input);
+      input.addEventListener("blur", () => {
+        self.validateFields(input as HTMLInputElement);
       });
     });
   }
 
-  validateFields(field) {
+  validateFields(field:HTMLInputElement) {
     if (field.name === "first_name" || field.name === "second_name") {
       const re = /^[А-ЯA-Z]{1}[а-яa-z0-9_-]{3,15}$/;
       if (re.test(field.value)) {
@@ -128,18 +130,20 @@ export class FormValidator {
     }
   }
 
-  setStatus(field, message, status) {
+  setStatus(field:HTMLInputElement, message:Nullable<string>, status:string) {
+    const errorText = field.parentElement!.querySelector(".label-wrapper__error-info-text") as HTMLElement;
+
     if (status === "success") {
-      field.parentElement.querySelector(".label-wrapper__error-info-text").innerText = "";
-      field.parentElement.querySelector(".label-wrapper").classList.remove("label-wrapper_error");
-      field.parentElement.querySelector(".input").classList.remove("input_error");
+      errorText.innerText = "";
+      field.parentElement!.querySelector(".label-wrapper")!.classList.remove("label-wrapper_error");
+      field.parentElement!.querySelector(".input")!.classList.remove("input_error");
     }
 
     if (status === "error") {
       this.allValidate = false;
-      field.parentElement.querySelector(".label-wrapper__error-info-text").innerText = message;
-      field.parentElement.querySelector(".label-wrapper").classList.add("label-wrapper_error");
-      field.parentElement.querySelector(".input").classList.add("input_error");
+      errorText.innerText = message || '';
+      field.parentElement!.querySelector(".label-wrapper")!.classList.add("label-wrapper_error");
+      field.parentElement!.querySelector(".input")!.classList.add("input_error");
     }
   }
 }
