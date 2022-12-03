@@ -2,6 +2,7 @@ import { BaseBlock } from "../../blocks/baseBlock/baseBlock";
 import template from "./userInfo.hbs";
 import { Input } from "../input/input";
 import { DataRow } from "../dataRow/dataRow";
+import './userInfo.css'
 
 interface UserInfoProps {
   inputs?: Input[];

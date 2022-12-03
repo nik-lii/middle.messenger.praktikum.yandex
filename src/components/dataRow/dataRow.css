@@ -1,6 +1,6 @@
-@import "../../index.css";
+@import url("../../index.css");
 
-.dataRow {
+.data-row {
   display: flex;
   justify-content: space-between;
   margin: 0 0 24px;

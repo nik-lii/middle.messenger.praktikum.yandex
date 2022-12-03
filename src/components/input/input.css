@@ -1,4 +1,4 @@
-@import "../../index.css";
+@import url("../../index.css");
 
 .label-wrapper {
   display: flex;

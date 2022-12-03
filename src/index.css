@@ -1,9 +1,9 @@
-$primaryColor: #000000;
-$secondaryColor: rgba(0, 0, 0, 0.72);
-$thirdColor: rgba(0, 0, 0, 0.52);
-$fourthColor: rgba(0, 0, 0, 0.1);
+$primaryColor: #000;
+$secondaryColor: rgb(0 0 0 / 72%);
+$thirdColor: rgb(0 0 0 / 52%);
+$fourthColor: rgb(0 0 0 / 10%);
 $activeColor: indianred;
-$backgroundColor: #ffffff;
+$backgroundColor: #fff;
 $borderRadius: 6px;
 
 * {
@@ -27,6 +27,13 @@ body {
   }
 }
 
+.title {
+  font-weight: 500;
+  font-size: 24px;
+  margin-bottom: 34px;
+  text-align: center;
+}
+
 .user-avatar {
   border-radius: 50%;
   background-color: $fourthColor;
@@ -45,63 +52,5 @@ body {
     &:hover {
       background-color: $activeColor;
     }
-  }
-}
-
-.user-info {
-  margin-bottom: 42px;
-
-  &__input {
-    margin-bottom: 28px;
-  }
-
-  &__action {
-    margin-bottom: 22px;
-  }
-
-  &__input,
-  &__action {
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  &__link {
-    display: block;
-    width: 100%;
-    text-align: center;
-  }
-}
-
-/* General */
-.title {
-  font-weight: 500;
-  font-size: 24px;
-  margin-bottom: 34px;
-  text-align: center;
-}
-
-.link {
-  font-size: 14px;
-  text-decoration: none;
-  color: $secondaryColor;
-
-  &:hover,
-  &:focus {
-    color: $activeColor;
-  }
-}
-
-.project-item {
-  list-style: none;
-}
-
-.project-link {
-  text-decoration: none;
-  color: $fourthColor;
-
-  &:hover,
-  &:focus {
-    color: $activeColor;
   }
 }

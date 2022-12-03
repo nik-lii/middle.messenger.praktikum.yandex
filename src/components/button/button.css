@@ -1,4 +1,4 @@
-@import "../../index.css";
+@import url("../../index.css");
 
 .button {
   font-size: 16px;
@@ -28,5 +28,16 @@
   &:focus {
     color: $activeColor;
     border-color: $activeColor;
+  }
+}
+
+.link {
+  font-size: 14px;
+  text-decoration: none;
+  color: $secondaryColor;
+
+  &:hover,
+  &:focus {
+    color: $activeColor;
   }
 }
