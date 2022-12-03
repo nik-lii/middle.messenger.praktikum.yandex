@@ -90,7 +90,7 @@ export class EditProfilePage extends BaseBlock<editProfilePageProps> {
   addValidation(element) {
     const profilePage = new ProfilePage({});
     const form = element.querySelector(".form");
-    const formValidation = new FormValidator(form, ["first_name", "second_name", "phone", "login", "email"], () =>
+    const formValidation = new FormValidator(form, ["first_name", "second_name", "phone", "login", "email", "display_name"], () =>
       goTo(profilePage)
     );
     formValidation.initialize();

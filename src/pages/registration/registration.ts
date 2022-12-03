@@ -95,7 +95,7 @@ export class RegistrationPage extends BaseBlock<RegistrationPageProps> {
     const profilePage = new ProfilePage({});
     const formValidation = new FormValidator(
       form,
-      ["first_name", "second_name", "phone", "login", "email", "password", "repeat_password"],
+      ["first_name", "second_name", "phone", "login", "email", "password", "repeat_password", "display_name"],
       () => goTo(profilePage)
     );
     formValidation.initialize();

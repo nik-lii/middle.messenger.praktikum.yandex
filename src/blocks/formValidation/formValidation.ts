@@ -106,7 +106,7 @@ export class FormValidator {
       }
     }
 
-    if (field.name === "message") {
+    if (field.name === "message" || field.name === "display_name") {
       if (field.value) {
         this.setStatus(field, null, "success");
       } else {
