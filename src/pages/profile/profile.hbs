@@ -1,36 +1,8 @@
----
-head: Профиль
-title: Профиль
----
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="../../index.css" rel="stylesheet">
-    <title>{{head}}</title>
-</head>
-<body>
 <main class="page">
-    <section class="page__content">
-        <h1 class="title">{{title}}</h1>
-        <div class="user-avatar"></div>
-        <div class="user-info">
-            {{> dataRow key="Почта" value="email@example.com" dataRowClass="dataRow" }}
-            {{> dataRow key="Логин" value="ivan" dataRowClass="dataRow" }}
-            {{> dataRow key="Имя" value="Иван" dataRowClass="dataRow" }}
-            {{> dataRow key="Фамилия" value="Иванов" dataRowClass="dataRow" }}
-            {{> dataRow key="Имя в чате" value="Иван" dataRowClass="dataRow" }}
-            {{> dataRow key="Телефон" value="79101234567" dataRowClass="dataRow" }}
-        </div>
-        <div class="user-action">
-            {{> link linkText="Изменить данные" linkClass="link user-info__action user-info__link"}}
-            {{> link linkText="Изменить пароль" linkClass="link user-info__action user-info__link"}}
-            {{> link linkText="Выйти" linkClass="link user-info__action user-info__link"}}
-        </div>
-    </section>
+  <section class="page__content">
+    <h1 class="title">Профиль</h1>
+    <div class="user-avatar"></div>
+    {{{userInfo}}}
+    {{{userAction}}}
+  </section>
 </main>
-
-</body>
-</html>

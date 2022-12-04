@@ -1,104 +1,104 @@
-$primaryColor: #000000;
-$secondaryColor: rgba(0,0,0,.72);
-$thirdColor: rgba(0,0,0,.52);
-$fourthColor: rgba(0,0,0,.1);
-$activeColor: indianred;
-$backgroundColor: #ffffff;
-$borderRadius: 6px;
+@import url("../../index.css");
 
 .page {
-    display: flex;
-    align-items: flex-start;
-    max-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  max-height: 100vh;
 }
 
 .chats {
-    padding: 6px;
-    border-right: 1px solid $fourthColor;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    &__profile-link {
-        margin-bottom: 32px;
-    }
+  padding: 6px;
+  border-right: 1px solid $fourthColor;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
-    &__search {
-        margin-bottom: 32px;
-    }
+  &__profile-link {
+    margin-bottom: 32px;
+  }
 
-    &__search-label {
-        display: none;
-    }
+  &__search {
+    margin-bottom: 32px;
+    width: 100%;
+  }
+
+  &__search-label {
+    display: none;
+  }
 }
 
 .chats-list {
-    overflow: scroll;
+  overflow: scroll;
 }
 
 .chat {
-    flex-grow: 1;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  height: 100%;
+  min-width: 400px;
+
+  &__input {
+    margin-bottom: 28px;
+  }
+
+  &__current-title {
+    align-self: center;
+    margin-bottom: 6px;
+  }
+
+  &__messages {
     display: flex;
     flex-direction: column;
-    padding: 30px;
-    height: 100%;
-    min-width: 400px;
+    overflow-y: scroll;
+    flex-grow: 1;
+  }
 
-    &__current-title {
-        align-self: center;
-        margin-bottom: 6px;
+  &__date {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    align-self: center;
+    font-size: 12px;
+    line-height: 12px;
+    color: $thirdColor;
+
+    &:first-of-type {
+      margin-top: 12px;
     }
+  }
 
-    &__messages {
-        display: flex;
-        flex-direction: column;
-        overflow-y: scroll;
-        flex-grow: 1;
+  &__message {
+    padding: 12px;
+    width: 40%;
+    border-radius: $borderRadius;
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 15px;
+
+    &:first-child {
+      margin-top: 0;
     }
+  }
 
-    &__date {
-        margin-top: 30px;
-        margin-bottom: 20px;
-        align-self: center;
-        font-size: 12px;
-        line-height: 12px;
-        color: $thirdColor;
+  &__received {
+    background-color: $fourthColor;
+  }
 
-        &:first-of-type {
-            margin-top: 12px;
-        }
+  &__sent {
+    background-color: $activeColor;
+    align-self: flex-end;
+  }
+
+  &__footer-buttons {
+    display: flex;
+  }
+
+  &__footer-button {
+    margin-left: 12px;
+
+    &:first-child {
+      margin-left: 0;
     }
-
-    &__message {
-        padding: 12px;
-        width: 40%;
-        border-radius: $borderRadius;
-        margin-top: 12px;
-        font-size: 12px;
-        line-height: 15px;
-
-        &:first-child {
-            margin-top: 0;
-        }
-    }
-
-    &__received {
-        background-color: $fourthColor ;
-    }
-
-    &__sent {
-        background-color: $activeColor;
-        align-self: flex-end;
-    }
-
-    &__footer-buttons {
-        display: flex;
-    }
-
-    &__footer-button {
-        margin-left: 12px;
-
-        &:first-child {
-            margin-left: 0;
-        }
-    }
+  }
 }
