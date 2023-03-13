@@ -13,6 +13,8 @@ interface Options {
   headers?: Record<string, string>;
 }
 
+type HTTPMethod = (url: string, options?:Omit<Options, "method">) => Promise<XMLHttpRequest | unknown>
+
 export function queryStringify(data: any) {
   if (typeof data !== "object") {
     throw new Error("Data must be object");
@@ -23,60 +25,25 @@ export function queryStringify(data: any) {
 }
 
 export class httpService {
-  get(
-    url: string,
-    options: Omit<Options, "method">
-  ): Promise<XMLHttpRequest | unknown> {
-    return this.request(
-      url,
-      { ...options, method: Methods.GET },
-      options.timeout
-    );
-  }
+  get: HTTPMethod = (url, options = {}) => (
+    this.request(url, {...options, method: Methods.GET}, options.timeout)
+  )
 
-  post(
-    url: string,
-    options: Omit<Options, "method">
-  ): Promise<XMLHttpRequest | unknown> {
-    return this.request(
-      url,
-      { ...options, method: Methods.POST },
-      options.timeout
-    );
-  }
+  post: HTTPMethod = (url, options = {}) => (
+    this.request(url, {...options, method: Methods.POST}, options.timeout)
+  )
 
-  put(
-    url: string,
-    options: Omit<Options, "method">
-  ): Promise<XMLHttpRequest | unknown> {
-    return this.request(
-      url,
-      { ...options, method: Methods.PUT },
-      options.timeout
-    );
-  }
+  put: HTTPMethod = (url, options = {}) => (
+    this.request(url, {...options, method: Methods.PUT}, options.timeout)
+  )
 
-  patch(
-    url: string,
-    options: Omit<Options, "method">
-  ): Promise<XMLHttpRequest | unknown> {
-    return this.request(
-      url,
-      { ...options, method: Methods.PATCH },
-      options.timeout
-    );
-  }
+  patch: HTTPMethod = (url, options = {}) => (
+    this.request(url, {...options, method: Methods.PATCH}, options.timeout)
+  )
 
-  delete(
-    url: string,
-    options: Omit<Options, "method">
-  ): Promise<XMLHttpRequest | unknown> {
-    return this.request(
-      url,
-      { ...options, method: Methods.DELETE },
-      options.timeout
-    );
-  }
+  delete: HTTPMethod = (url, options = {}) => (
+    this.request(url, {...options, method: Methods.DELETE}, options.timeout)
+  )
 
   request(
     url: string,
