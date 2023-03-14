@@ -7,6 +7,7 @@ import { MessagePreview } from "../../components/messagePreview/messagePreview";
 import "./messenger.css";
 import { ProfilePage } from "../profile/profile";
 import { goTo } from "../../utils/goTo";
+import Router from "../../blocks/router/router";
 
 interface MessengerPageProps {
   title: string;
@@ -38,8 +39,7 @@ export class MessengerPage extends BaseBlock<MessengerPageProps> {
       events: {
         click: (e) => {
           e.preventDefault();
-          const profilePage = new ProfilePage({});
-          goTo(profilePage);
+          Router.go('/profile-page');
         },
       },
     })),

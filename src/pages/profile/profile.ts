@@ -8,6 +8,7 @@ import { goTo } from "../../utils/goTo";
 import { DataRow } from "../../components/dataRow/dataRow";
 import { EditPasswordPage } from "../editPassword/editPassword";
 import { EditProfilePage } from "../editProfile/editProfile";
+import Router from "../../blocks/router/router";
 
 // временное
 const MOCK_DATA = {
@@ -40,10 +41,7 @@ export class ProfilePage extends BaseBlock<ProfilePageProps> {
           events: {
             click: (e) => {
               e.preventDefault();
-              const editProfilePage = new EditProfilePage({
-                title: "Регистрация",
-              });
-              goTo(editProfilePage);
+              Router.go('/edit-profile-page');
             },
           },
         }),
@@ -55,8 +53,7 @@ export class ProfilePage extends BaseBlock<ProfilePageProps> {
           events: {
             click: (e) => {
               e.preventDefault();
-              const editPasswordPage = new EditPasswordPage({});
-              goTo(editPasswordPage);
+              Router.go('/edit-password-page');
             },
           },
         }),
@@ -68,10 +65,7 @@ export class ProfilePage extends BaseBlock<ProfilePageProps> {
           events: {
             click: (e) => {
               e.preventDefault();
-              const registrationPage = new RegistrationPage({
-                title: "Регистрация",
-              });
-              goTo(registrationPage);
+              Router.go('/registration-page');
             },
           },
         }),

@@ -5,9 +5,7 @@ import { UserInfo } from "../../components/userInfo/userInfo";
 import { Button } from "../../components/button/button";
 import { UserAction } from "../../components/userAction/userAction";
 import { FormValidator } from "../../blocks/formValidation/formValidation";
-import { goTo } from "../../utils/goTo";
-import { RegistrationPage } from "../registration/registration";
-import { MessengerPage } from "../messenger/messenger";
+import Router from "../../blocks/router/router";
 
 interface AuthorizationPageProps {
   title: string;
@@ -55,8 +53,7 @@ export class AuthorizationPage extends BaseBlock<AuthorizationPageProps> {
           events: {
             click: (e) => {
               e.preventDefault();
-              const registrationPage = new RegistrationPage({});
-              goTo(registrationPage);
+              Router.go('/registration-page');
             },
           },
         }),
@@ -66,9 +63,8 @@ export class AuthorizationPage extends BaseBlock<AuthorizationPageProps> {
 
   addValidation(element: DocumentFragment) {
     const form = element.querySelector(".form") as HTMLFormElement;
-    const messengerPage = new MessengerPage({});
 
-    const formValidation = new FormValidator(form, ["login", "password"], () => goTo(messengerPage));
+    const formValidation = new FormValidator(form, ["login", "password"], () => Router.go('/'));
     formValidation.initialize();
   }
 
