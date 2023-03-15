@@ -3,11 +3,7 @@ import template from "./profile.hbs";
 import { UserInfo } from "../../components/userInfo/userInfo";
 import { Button } from "../../components/button/button";
 import { UserAction } from "../../components/userAction/userAction";
-import { RegistrationPage } from "../registration/registration";
-import { goTo } from "../../utils/goTo";
 import { DataRow } from "../../components/dataRow/dataRow";
-import { EditPasswordPage } from "../editPassword/editPassword";
-import { EditProfilePage } from "../editProfile/editProfile";
 import Router from "../../blocks/router/router";
 
 // временное

@@ -5,8 +5,7 @@ import { UserInfo } from "../../components/userInfo/userInfo";
 import { Button } from "../../components/button/button";
 import { UserAction } from "../../components/userAction/userAction";
 import { FormValidator } from "../../blocks/formValidation/formValidation";
-import { goTo } from "../../utils/goTo";
-import { ProfilePage } from "../profile/profile";
+import Router from "../../blocks/router/router";
 
 interface RegistrationPageProps {}
 
@@ -92,11 +91,10 @@ export class RegistrationPage extends BaseBlock<RegistrationPageProps> {
 
   addValidation(element: DocumentFragment) {
     const form = element.querySelector(".form") as HTMLFormElement;
-    const profilePage = new ProfilePage({});
     const formValidation = new FormValidator(
       form,
       ["first_name", "second_name", "phone", "login", "email", "password", "repeat_password", "display_name"],
-      () => goTo(profilePage)
+      () => Router.go('/profile-page')
     );
     formValidation.initialize();
   }

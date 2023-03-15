@@ -2,8 +2,7 @@ import { BaseBlock } from "../../blocks/baseBlock/baseBlock";
 import template from "./problem.hbs";
 import "./problem.css";
 import { Button } from "../../components/button/button";
-import { goTo } from "../../utils/goTo";
-import { MessengerPage } from "../messenger/messenger";
+import Router from "../../blocks/router/router";
 
 interface ProblemPageProps {
   title: string;
@@ -22,8 +21,7 @@ export class ProblemPage extends BaseBlock<ProblemPageProps> {
       events: {
         click: (e) => {
           e.preventDefault();
-          const messengerPage = new MessengerPage({});
-          goTo(messengerPage);
+          Router.go('/')
         },
       },
     });

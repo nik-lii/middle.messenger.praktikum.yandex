@@ -5,8 +5,7 @@ import { UserInfo } from "../../components/userInfo/userInfo";
 import { Button } from "../../components/button/button";
 import { UserAction } from "../../components/userAction/userAction";
 import { FormValidator } from "../../blocks/formValidation/formValidation";
-import { goTo } from "../../utils/goTo";
-import { ProfilePage } from "../profile/profile";
+import Router from "../../blocks/router/router";
 
 interface editProfilePageProps {
 }
@@ -78,8 +77,7 @@ export class EditProfilePage extends BaseBlock<editProfilePageProps> {
           events: {
             click: (e) => {
               e.preventDefault();
-              const profilePage = new ProfilePage({});
-              goTo(profilePage);
+              Router.go('/profile-page')
             },
           },
         }),
@@ -88,10 +86,9 @@ export class EditProfilePage extends BaseBlock<editProfilePageProps> {
   }
 
   addValidation(element: DocumentFragment) {
-    const profilePage = new ProfilePage({});
     const form = element.querySelector(".form") as HTMLFormElement;
     const formValidation = new FormValidator(form, ["first_name", "second_name", "phone", "login", "email", "display_name"], () =>
-      goTo(profilePage));
+      Router.go('/profile-page'));
     formValidation.initialize();
   }
 

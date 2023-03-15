@@ -5,8 +5,6 @@ import { Button } from "../../components/button/button";
 import { FormValidator } from "../../blocks/formValidation/formValidation";
 import { MessagePreview } from "../../components/messagePreview/messagePreview";
 import "./messenger.css";
-import { ProfilePage } from "../profile/profile";
-import { goTo } from "../../utils/goTo";
 import Router from "../../blocks/router/router";
 
 interface MessengerPageProps {
