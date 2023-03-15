@@ -24,6 +24,7 @@ window.addEventListener("DOMContentLoaded", () => {
   Router.use(Routes.ProfilePage, ProfilePage);
   Router.use(Routes.EditProfilePage, EditProfilePage);
   Router.use(Routes.EditPasswordPage, EditPasswordPage);
+  debugger
 
   try {
     Router.start();
