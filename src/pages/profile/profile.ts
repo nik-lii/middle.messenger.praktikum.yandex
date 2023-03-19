@@ -5,16 +5,7 @@ import { Button } from "../../components/button/button";
 import { UserAction } from "../../components/userAction/userAction";
 import { DataRow } from "../../components/dataRow/dataRow";
 import Router from "../../blocks/router/router";
-
-// временное
-const MOCK_DATA = {
-  Почта: "email@example.com",
-  Логин: "ivan",
-  Имя: "Иван",
-  Фамилия: "Иванов",
-  "Имя в чате": "Иван",
-  Телефон: "89100000000",
-};
+import store from "../../blocks/store/Store";
 
 interface ProfilePageProps {}
 
@@ -24,8 +15,9 @@ export class ProfilePage extends BaseBlock<ProfilePageProps> {
   }
 
   init() {
+    const user = store.getState().user;
     this.children.userInfo = new UserInfo({
-      dataRows: Object.entries(MOCK_DATA).map(([key, value]) => new DataRow({ key, value })),
+      dataRows: Object.entries(user).map(([key, value]) => new DataRow({ key, value })),
     });
 
     this.children.userAction = new UserAction({

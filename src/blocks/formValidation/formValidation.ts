@@ -3,10 +3,10 @@ import { Nullable } from "../../types/common";
 export class FormValidator {
   fields: string[];
   form: HTMLFormElement;
-  successCallback?: () => void;
+  successCallback?: (currentData: Record<string, string>) => void;
   allValidate: boolean;
 
-  constructor(form: HTMLFormElement, fields:string[], successCallback?:() => void) {
+  constructor(form: HTMLFormElement, fields:string[], successCallback?:(currentData: Record<string, string>) => void) {
     this.form = form;
     this.fields = fields;
     this.successCallback = successCallback;
@@ -35,7 +35,7 @@ export class FormValidator {
         self.validateFields(input);
       });
       if (self.allValidate) {
-        this.successCallback && this.successCallback();
+        this.successCallback && this.successCallback(currentData);
         console.log(currentData);
       }
     });
@@ -57,7 +57,7 @@ export class FormValidator {
 
   validateFields(field:HTMLInputElement) {
     if (field.name === "first_name" || field.name === "second_name") {
-      const re = /^[А-ЯA-Z]{1}[а-яa-z0-9_-]{3,15}$/;
+      const re = /^[А-ЯA-Z]{1}[а-яa-z0-9_-]{2,15}$/;
       if (re.test(field.value)) {
         this.setStatus(field, null, "success");
       } else {

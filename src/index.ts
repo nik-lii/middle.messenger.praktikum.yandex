@@ -6,6 +6,7 @@ import { RegistrationPage } from "./pages/registration/registration";
 import { ProfilePage } from "./pages/profile/profile";
 import { EditProfilePage } from "./pages/editProfile/editProfile";
 import { EditPasswordPage } from "./pages/editPassword/editPassword";
+import AuthController from "./blocks/controllers/authController";
 
 enum Routes {
   Index = '/',
@@ -17,18 +18,20 @@ enum Routes {
 
 }
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", async () => {
   Router.use(Routes.Index, MessengerPage);
   Router.use(Routes.AuthorizationPage, AuthorizationPage);
   Router.use(Routes.RegistrationPage, RegistrationPage);
   Router.use(Routes.ProfilePage, ProfilePage);
   Router.use(Routes.EditProfilePage, EditProfilePage);
   Router.use(Routes.EditPasswordPage, EditPasswordPage);
-  debugger
 
   try {
+    await AuthController.getUser();
     Router.start();
-  } catch (e) {
 
+  } catch (e) {
+    Router.start();
+    console.log('e:', e);
   }
 });

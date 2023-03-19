@@ -6,6 +6,8 @@ import { Button } from "../../components/button/button";
 import { UserAction } from "../../components/userAction/userAction";
 import { FormValidator } from "../../blocks/formValidation/formValidation";
 import Router from "../../blocks/router/router";
+import AuthController from "../../blocks/controllers/authController";
+import {SignupData} from "../../blocks/api/interfaces/authApi";
 
 interface RegistrationPageProps {}
 
@@ -89,12 +91,17 @@ export class RegistrationPage extends BaseBlock<RegistrationPageProps> {
     });
   }
 
+  onSubmit(currentData: Record<string, string | number>) {
+    AuthController.signup(currentData as SignupData)
+  }
+
   addValidation(element: DocumentFragment) {
     const form = element.querySelector(".form") as HTMLFormElement;
+
     const formValidation = new FormValidator(
       form,
       ["first_name", "second_name", "phone", "login", "email", "password", "repeat_password", "display_name"],
-      () => Router.go('/profile-page')
+      (currentData) => {this.onSubmit({...currentData, "first_name": "Никита2"})}
     );
     formValidation.initialize();
   }

@@ -25,12 +25,18 @@ export function queryStringify(data: any) {
 }
 
 export class httpService {
-  get: HTTPMethod = (url, options = {}) => (
-    this.request(url, { ...options, method: Methods.GET }, options.timeout)
+  private url: string
+  static BASE_URL = 'https://ya-praktikum.tech/api/v2';
+
+  constructor(endpoint: string) {
+    this.url = `${httpService.BASE_URL}${endpoint}`;
+  }
+  get: HTTPMethod = (endpoint, options = {}) => (
+    this.request(this.url + endpoint, { ...options, method: Methods.GET }, options.timeout)
   );
 
-  post: HTTPMethod = (url, options = {}) => (
-    this.request(url, { ...options, method: Methods.POST }, options.timeout)
+  post: HTTPMethod = (endpoint, data = {}) => (
+    this.request(this.url + endpoint, { data, method: Methods.POST })
   );
 
   put: HTTPMethod = (url, options = {}) => (
@@ -60,8 +66,15 @@ export class httpService {
         xhr.setRequestHeader(key, headers[key]);
       });
 
-      xhr.onload = function () {
-        resolve(xhr);
+      xhr.onreadystatechange = () => {
+
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status < 400) {
+            resolve(xhr.response);
+          } else {
+            reject(xhr.response);
+          }
+        }
       };
 
       xhr.onabort = reject;
@@ -70,10 +83,14 @@ export class httpService {
       xhr.timeout = timeout;
       xhr.ontimeout = reject;
 
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.withCredentials = true;
+      xhr.responseType = 'json';
+
       if (method === Methods.GET || !data) {
         xhr.send();
       } else {
-        xhr.send(data);
+        xhr.send(JSON.stringify(data));
       }
     });
   }

@@ -6,6 +6,8 @@ import { Button } from "../../components/button/button";
 import { UserAction } from "../../components/userAction/userAction";
 import { FormValidator } from "../../blocks/formValidation/formValidation";
 import Router from "../../blocks/router/router";
+import AuthController from "../../blocks/controllers/authController";
+import {SigninData} from "../../blocks/api/interfaces/authApi";
 
 interface AuthorizationPageProps {
   title: string;
@@ -61,10 +63,14 @@ export class AuthorizationPage extends BaseBlock<AuthorizationPageProps> {
     });
   }
 
+  onSubmit(currentData: Record<string, string | number>) {
+    AuthController.signin(currentData as unknown as SigninData)
+  }
+
   addValidation(element: DocumentFragment) {
     const form = element.querySelector(".form") as HTMLFormElement;
 
-    const formValidation = new FormValidator(form, ["login", "password"], () => Router.go('/'));
+    const formValidation = new FormValidator(form, ["login", "password"], (currentData) => this.onSubmit(currentData));
     formValidation.initialize();
   }
 
